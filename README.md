@@ -7,7 +7,6 @@ A simple, dynamic personal homepage that adapts to different Arweave gateways.
 - Automatically detects and displays the current gateway domain
 - Dynamic content loading for articles and talks
 - Preview support for article content and images
-- Responsive design with a retro-cyberpunk aesthetic
 
 ## Usage
 
