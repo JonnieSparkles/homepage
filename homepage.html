@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta property="og:title" content="JonnieSparkles' Homepage" />
+    <meta property="og:description" content="Shilling permanence." />
+    <meta property="og:image" content="https://arweave.net/1JJqACNKAqui389pTYaks2HDkIBmKO6zzaMN4VxRpqw" />
+    <meta property="og:url" content="https://arweave.net" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jonniesparkles" />
+    <meta name="twitter:title" content="JonnieSparkles' Homepage" />
+    <meta name="twitter:description" content="Shilling permanence." />
+    <meta name="twitter:image" content="https://arweave.net/1JJqACNKAqui389pTYaks2HDkIBmKO6zzaMN4VxRpqw" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://arweave.net/1JJqACNKAqui389pTYaks2HDkIBmKO6zzaMN4VxRpqw" type="image/x-icon">
+
+    <title>JonnieSparkles' Homepage</title>
+    <script>
+      console.log("Script is running");  // This will verify if the script is executing
+      let gatewayDomain;    
+      function getGatewayDomain() {
+        const currentDomain = window.location.hostname;
+        const domainParts = currentDomain.split('.');
+        const hashRegex = /^[a-z0-9]{40,}$/; // Regex to detect long hash-like subdomain
+    
+        if (hashRegex.test(domainParts[0]) && domainParts.length > 2) {
+          return domainParts.slice(1).join('.'); // If the first part is a long hash, remove it
+        } else if (domainParts[0] === 'jonniesparkles') {
+          return domainParts.slice(1).join('.'); // Remove "jonniesparkles" if present
+        } else {
+          return currentDomain; // Otherwise, use the full domain
+        }
+      }
+    
+      function updateOpenGraphTags() {
+        const profilePicUrl = `https://${gatewayDomain}/1JJqACNKAqui389pTYaks2HDkIBmKO6zzaMN4VxRpqw`;
+        document.getElementById('ogImageMeta').setAttribute('content', profilePicUrl);
+        document.getElementById('ogUrlMeta').setAttribute('content', `https://${gatewayDomain}`);
+      }
+    
+      function updateDynamicContent() {
+        const profilePic = document.getElementById('profilePicture');
+    
+        // Define useful links data in a single structure
+        const usefulLinks = [
+          { name: 'playdead', description: 'A themed player and catalog for archived music.', customTitle: 'ar://playdead' },
+          { name: 'timestamp', description: 'A tool for viewing and generating timestamps.', customTitle: 'Timestamp' },
+          { name: 'ardrive', description: 'Store your files permanently with @ardriveapp.', customTitle: 'ArDrive' },
+          { name: 'arns', description: 'Manage your Arweave Names System domains by @ar_io_network.', customTitle: 'ArNS' },
+          { name: 'gateways', description: 'Access decentralized gateways on Arweave by @ar_io_network.', customTitle: 'Gateways' },
+          { name: 'nav_tiny4vr', description: 'A navigation tool for the permaweb by @dpshade22.', customTitle: 'Nav_Tiny4vr' }
+        ];
+    
+        const usefulLinksContainer = document.getElementById('usefulLinksContainer');
+        usefulLinksContainer.innerHTML = '';
+        usefulLinks.forEach(link => {
+          const listItem = document.createElement('li');
+          const anchor = document.createElement('a');
+          anchor.href = `https://${link.name}.${gatewayDomain}`;
+          anchor.className = 'article-link';
+          anchor.target = '_blank';
+          anchor.textContent = link.customTitle || (link.name.charAt(0).toUpperCase() + link.name.slice(1));
+          const blurb = document.createElement('p');
+          blurb.className = 'small-text';
+          blurb.textContent = link.description;
+          listItem.appendChild(anchor);
+          listItem.appendChild(blurb);
+          usefulLinksContainer.appendChild(listItem);
+        });
+    
+        // Define articles data with publication dates
+        const articles = [
+          { title: 'Fortifying Data Permanence with Open Source Principles', txId: 'awtPHVXYM4hq5r6ovDQCgf8tcDBfok7apB5rcw7c7N0', publishedDate: '2023-08-10' },
+          { title: 'Guarding the Gates: Content Moderation and the Future of Decentralized Gateways on Arweave', txId: 'BFYRbsSUGVXxv8_5N_YMwkHc5RV7u1C8AhoCWXV_R50', publishedDate: '2023-05-18' },
+          { title: 'The Many Layers of Permanence: Censorship and Content Moderation', txId: 'lk8TSNbiiYSB3N49l087hMpAKhK8i8q514HXVGiW2CE', publishedDate: '2023-04-07' },
+          { title: 'wen ArDrive Mobile for iOS?', txId: 'RX5v4De6EWnOKz408jwFNCfKrQShxXjlQJbp1nOdKCk', publishedDate: '2022-10-25' }
+        ];
+    
+        const articlesContainer = document.getElementById('articlesContainer');
+        articlesContainer.innerHTML = '';
+        articles.forEach(article => {
+          const listItem = document.createElement('li');
+          const anchor = document.createElement('a');
+          anchor.href = `${article.txId}`;
+          anchor.className = 'article-link';
+          anchor.target = '_blank';
+          anchor.textContent = article.title;
+          const dateText = document.createElement('p');
+          dateText.className = 'small-text';
+          dateText.textContent = `Published on: ${article.publishedDate}`;
+          listItem.appendChild(anchor);
+          listItem.appendChild(dateText);
+          articlesContainer.appendChild(listItem);
+    
+          // Fetch and add preview content
+          fetch(`${article.txId}`)
+            .then(response => response.text())
+            .then(data => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(data, 'text/html');
+    
+              const imgElement = doc.querySelector('img');
+              const container = document.createElement('div');
+              container.style.display = 'flex';
+              container.style.alignItems = 'flex-start';
+              container.style.marginTop = '10px';
+              container.style.marginBottom = '20px';
+              container.style.gap = '15px';
+              container.style.width = '100%';
+              container.style.flexDirection = 'row';
+              container.style.alignItems = 'flex-start';
+    
+              if (imgElement) {
+                const imgPreview = document.createElement('img');
+                imgPreview.src = imgElement.src.startsWith('http') ? imgElement.src : `${imgElement.src}`;
+                imgPreview.className = 'article-image-preview';
+                imgPreview.style.maxWidth = '150px';
+                imgPreview.style.flexShrink = '0';
+                imgPreview.style.height = 'auto';
+                imgPreview.style.marginRight = '10px';
+                container.appendChild(imgPreview);
+              }
+    
+              const paragraphs = doc.querySelectorAll('p');
+              let previewText = '';
+              for (let i = 0; i < Math.min(2, paragraphs.length); i++) {
+                previewText += paragraphs[i].textContent + ' ';
+              }
+              const previewElement = document.createElement('div');
+              previewElement.className = 'article-preview';
+              previewElement.style.width = 'calc(100% - 180px)';
+              previewElement.style.marginLeft = '15px';
+              previewElement.style.flex = '1';
+              previewElement.textContent = previewText.trim().split(' ').slice(0, 30).join(' ') + '...';
+              container.appendChild(previewElement);
+              listItem.appendChild(container);
+            })
+            .catch(error => {
+              console.error('Error fetching article preview:', error);
+            });
+        });
+    
+        // Generate talks and appearances links with publication dates dynamically
+        const talksContainer = document.getElementById('talksContainer');
+        talksContainer.innerHTML = '';
+        const talks = [
+          { title: 'Permaweb Pioneers Podcast', txId: 'XLeJ6gghPfQBMvx2sfmFbW0Yx_M0nrvEgnCHok71rfc', publishedDate: '2024-05-09' },
+          { title: 'Pain: Data Loss and How Arweave Alleviates It', txId: 'ldCVUSl4l92NBrkj_pmCF8AAClPDZuffas_o32NI6mQ', publishedDate: '2023-12-08' }
+        ];
+    
+        talks.forEach(talk => {
+          const listItem = document.createElement('li');
+          const anchor = document.createElement('a');
+          anchor.href = `${talk.txId}`;
+          anchor.className = 'article-link';
+          anchor.target = '_blank';
+          anchor.textContent = talk.title;
+          const dateText = document.createElement('p');
+          dateText.className = 'small-text';
+          dateText.textContent = `Date: ${talk.publishedDate}`;
+          listItem.appendChild(anchor);
+          listItem.appendChild(dateText);
+          talksContainer.appendChild(listItem);
+        });
+    
+        profilePic.src = `./1JJqACNKAqui389pTYaks2HDkIBmKO6zzaMN4VxRpqw`;
+      }
+    
+      window.onload = function () {
+        gatewayDomain = getGatewayDomain();
+        updateDynamicContent();
+        displayGatewayDomain();
+        updateOpenGraphTags();
+      };
+    </script>
+    <style>
+      body {
+        font-family: 'Monaco', monospace;
+        background-color: #1b1b2f;
+        color: #e94560;
+        text-align: center;
+      }
+
+      #content {
+        margin: 50px auto;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #16213e;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(233, 69, 96, 0.8);
+      }
+
+      h1 {
+        font-size: 36px;
+        color: #ff69b4;
+      }
+
+      ul {
+        text-align: left;
+        padding-left: 20px;
+        font-size: 16px;
+        color: #c3c3c3;
+        margin-right: 30px; /* Align right edge with preview text */
+      }
+
+      li {
+        margin: 10px 0;
+      }
+
+      .article-link {
+        color: #ff69b4;
+        text-decoration: none;
+      }
+
+      .article-link:hover {
+        text-decoration: underline;
+      }
+
+      .article-preview {
+        font-size: 14px;
+        color: #bbb;
+        margin-top: 5px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: top;
+        max-width: calc(100% - 120px); /* Adjusting to fit next to image */
+      }
+
+      .article-image-preview {
+        margin-top: 10px;
+        border-radius: 5px;
+        max-width: 100px;
+        height: auto;
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: top;
+      }
+
+      .small-text {
+        font-size: 12px;
+        color: #bbb;
+      }
+
+      .profile-picture {
+        border-radius: 50%;
+        margin: 20px auto;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .social-link {
+        color: #ff69b4;
+        text-decoration: none;
+        font-size: 18px;
+        margin-top: 15px;
+      }
+
+      .social-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <h1>JonnieSparkles</h1>
+
+      <!-- Dynamic Profile Picture -->
+      <img
+        id="profilePicture"
+        alt="Profile Picture"
+        class="profile-picture"
+      />
+
+      <!-- Useful Links Section -->
+      <p style="text-align: center;">Useful Links:</p>
+      <ul id="usefulLinksContainer"></ul>
+
+      <p style="text-align: center;">Musings:</p>
+
+      <!-- Dynamic links to Musings with bullet points -->
+      <ul id="articlesContainer"></ul>
+      
+      <!-- Dynamic links to Talks with bullet points -->
+      <p style="text-align: center;">Talks and Appearances:</p>
+      <ul id="talksContainer"></ul>
+     
+      <!-- Social media link -->
+      <br><br><a href="https://twitter.com/jonniesparkles" target="_blank" class="social-link">
+        @jonniesparkles
+      </a>
+
+      <!-- Display dynamic gateway domain and link toe gateway details-->
+      <p class="small-text">Loaded from: <a id="gatewayDomainLink" href="#" target="_blank">Loading...</a></p>
+
+    </div>
+
+    <script>
+      async function fetchGatewayDetails() {
+          try {
+              console.log('gatewayDomain:', gatewayDomain);
+              const response = await fetch(`https://${gatewayDomain}/ar-io/info`);
+              if (!response.ok) {
+                  throw new Error('Failed to fetch gateway info');
+              }
+              const data = await response.json();
+              console.log('Fetched data:', data);
+              const wallet = data.wallet;
+    
+              const detailsUrl = `https://gateways.${gatewayDomain}/#/gateways/${wallet}`;
+              const gatewayLinkElement = document.getElementById('gatewayDomainLink');
+              gatewayLinkElement.textContent = gatewayDomain;
+              gatewayLinkElement.href = detailsUrl;
+          } catch (error) {
+              console.error('Error fetching gateway details:', error);
+              document.getElementById('gatewayDomainLink').textContent = "Failed to load gateway";
+          }
+      }
+    
+      window.onload = function () {
+        console.log('Calling fetchGatewayDetails');
+        gatewayDomain = getGatewayDomain();
+        fetchGatewayDetails();  // Ensure the new function runs
+        updateDynamicContent();
+        updateOpenGraphTags();
+      };
+    </script>
+    
+  </body>
+</html>
