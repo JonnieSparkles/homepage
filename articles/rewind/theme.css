@@ -1,32 +1,34 @@
-/* Modern Minimalist Theme */
+/* Old Timey Document Theme */
 :root {
-  --primary-color: #333;
-  --background-color: #f5f5f5;
-  --link-color: #007acc;
-  --link-hover-color: #005f99;
-  --border-color: #ccc;
-  --code-bg: #eaeaea;
-  --quote-color: #666;
+  --parchment-color: #f8f5e6;
+  --ink-color: #2b2522;
+  --aged-border: #d9d2bd;
+  --link-color: #5b4636;
+  --link-hover-color: #8b6b4a;
+  --code-bg: #f0ead6;
+  --quote-color: #5d534a;
 }
 
 body {
-  background: var(--background-color);
-  color: var(--primary-color);
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #e8e4d9;
+  color: var(--ink-color);
+  font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
   padding: 0;
 }
 
 .markdown-preview {
-  max-width: 800px;
+  max-width: 750px;
   margin: 40px auto;
-  padding: 2rem;
-  background: #fff;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  background: var(--parchment-color);
+  border: 1px solid var(--aged-border);
+  border-radius: 2px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  text-align: justify;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23dcd6c1' fill-opacity='0.25' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 /* Add responsive image handling */
@@ -35,83 +37,135 @@ body {
   height: auto;
   display: block;
   margin: 2rem auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #e8e4d9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  filter: sepia(15%);
 }
 
-/* Optional: Add a container for images that need captions */
-.markdown-preview p:has(img) {
+/* Image containers */
+.markdown-preview p img {
   text-align: center;
   margin: 2rem 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-color);
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  color: var(--ink-color);
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
   line-height: 1.3;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: normal;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.25em; }
-h4 { font-size: 1.1em; }
+h1 { 
+  font-size: 2.2em; 
+  text-align: center;
+  border-bottom: 2px double var(--aged-border);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.3em;
+  letter-spacing: 0.05em;
+}
+
+h2 { 
+  font-size: 1.8em; 
+  font-style: italic;
+}
+
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; font-style: italic; }
 h5, h6 { font-size: 1em; }
 
 p {
-  margin: 1em 0;
+  margin: 1.2em 0;
+  text-indent: 1.5em;
 }
+
+/* Remove text indent for first paragraph of each section */
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+  text-indent: 0;
+}
+
+/* Style for byline with small tag */
+small {
+  color: #5d534a;
+  font-style: italic;
+  display: block;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2em;
+  font-size: 0.9em;
+}
+
+/* Remove the drop cap styling */
+/* We're removing the drop cap to fix the byline issue */
 
 a {
   color: var(--link-color);
   text-decoration: none;
-  transition: color 0.2s ease;
+  border-bottom: 1px dotted var(--link-color);
 }
 
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
+  border-bottom: 1px solid var(--link-hover-color);
 }
 
 code {
   background: var(--code-bg);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 2px 4px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9em;
+  border: 1px solid #e0d8c0;
 }
 
 pre {
   background: var(--code-bg);
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 0;
   overflow-x: auto;
   line-height: 1.5;
+  border: 1px solid #e0d8c0;
 }
 
 pre code {
   padding: 0;
   background: none;
+  border: none;
 }
 
 blockquote {
-  border-left: 4px solid var(--border-color);
-  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: none;
+  padding: 1.5rem 2rem;
   color: var(--quote-color);
-  margin: 1.5rem 0;
+  margin: 2rem 1rem;
   font-style: italic;
+  background-color: rgba(216, 210, 195, 0.2);
+  position: relative;
 }
 
-/* Remove scanline effect and clean up */
-body::after {
-  display: none;
+blockquote:before, blockquote:after {
+  content: '"';
+  font-size: 3em;
+  position: absolute;
+  color: #d8d2c3;
+}
+
+blockquote:before {
+  top: -10px;
+  left: 5px;
+}
+
+blockquote:after {
+  bottom: -30px;
+  right: 5px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 840px) {
   .markdown-preview {
     margin: 20px;
-    padding: 1.5rem;
+    padding: 2rem;
   }
 }
 
@@ -122,6 +176,14 @@ body::after {
   
   .markdown-preview {
     margin: 10px;
-    padding: 1rem;
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
   }
 } 

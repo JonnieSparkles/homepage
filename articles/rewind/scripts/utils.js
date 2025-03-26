@@ -60,5 +60,5 @@ function replaceArweaveLinks() {
     });
 }
 
-// Initialize link replacement when script is loaded
+// Immediately invoke the replaceArweaveLinks function
 replaceArweaveLinks();
