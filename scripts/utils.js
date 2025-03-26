@@ -35,3 +35,30 @@ function isMobileDevice() {
     
     return hasTouchAndSmallScreen || isMobileUA;
 }
+
+// Replace all arweave.net links with the current gateway
+function replaceArweaveLinks() {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get current gateway domain
+        const gatewayDomain = detectGatewayDomain();
+        
+        // Replace arweave.net links in content
+        const contentLinks = document.querySelectorAll('.markdown-preview a');
+        
+        contentLinks.forEach(link => {
+            if (link.href.includes('arweave.net')) {
+                // Replace arweave.net with current gateway
+                link.href = link.href.replace('https://arweave.net', gatewayDomain);
+                
+                // Also replace it in the displayed text if it contains arweave.net
+                if (link.textContent.includes('arweave.net')) {
+                    link.textContent = link.textContent.replace('arweave.net', 
+                        gatewayDomain.replace('https://', ''));
+                }
+            }
+        });
+    });
+}
+
+// Initialize link replacement when script is loaded
+replaceArweaveLinks();
