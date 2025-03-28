@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Many Layers of Permanence: Censorship and Content Moderation</title>
+    
+    <!-- Metadata -->
+    <meta property="og:title" content="The Many Layers of Permanence: Censorship and Content Moderation" />
+    <meta property="og:description" content="An exploration of censorship and Arweave by @JonnieSparkles" />
+    <meta property="og:image" content="https://arweave.net/cBRiyi5SYg4nWzvvt3CjXRSzW27CVM005FhX8c9qfps" />
+    <meta property="og:url" content="https://jonniesparkles.arweave.net/censorship-and-content-moderation.html" />
+    <meta property="og:type" content="website" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="The Many Layers of Permanence: Censorship and Content Moderation" />
+    <meta name="twitter:description" content="An exploration of censorship and Arweave by @JonnieSparkles" />
+    <meta name="twitter:image" content="https://arweave.net/cBRiyi5SYg4nWzvvt3CjXRSzW27CVM005FhX8c9qfps" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An exploration of censorship and Arweave">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./censorship-and-content-moderation/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./censorship-and-content-moderation/theme.css">
+
+
+  </head>
+  <body>
+    <div class="markdown-preview">
+      <main class="bg-base-100">
+        <div class="flex flex-col md:flex-row space-x-4">  
+          <div class="flex-1 md:min-h-screen">
+            <div class="prose md:prose-lg lg:prose-xl m-8 md:mx-24 ">
+            <h1>The Many Layers of Permanence: Censorship and Content Moderation</h1>
+            <p><small>by <a href="https://jonniesparkles.arweave.net">@JonnieSparkles</a><br>Originally published: <a href="https://arweave.net/lk8TSNbiiYSB3N49l087hMpAKhK8i8q514HXVGiW2CE">2023-04-07</a></small></p>
+    <h3><strong>Introduction</strong></h3>
+        <p>Arweave's tagline "Pay once, store forever" is <a href="https://ardrive.io/can-data-really-be-stored-forever/">often met with skepticism</a>. The concept of permanent data is novel to those outside of the "Arweave bubble" and even for those inside, it can be debatable. As a result, we are often approached with questions ranging in tone from FUD to genuine curiosity.</p>
+    <p>In this article we'd like to kick off an exploration of the nucleus that these questions and concerns hover around: <strong>How permanent is permanent?</strong></p>
+    <p>The answer is not straight forward, is not binary or singular, and depends on which lens you are looking through. Ultimately, there are many layers of permanence to be explored.</p>
+    <p>We'll start by looking at censorship and content moderation then continue exploring other layers in future articles.</p>
+    <p><img src="./censorship-and-content-moderation/you-cant-see-that.png" alt=""></p>
+    <h3><strong>Censorship and Content Moderation</strong></h3>
+    <p>Censorship is the suppression or prohibition of information that is considered obscene, politically unacceptable, or a threat to the security, influence, or political standing of a person, group, or nation. It is often used to maintain power, control public opinion, or protect the status quo. However, the ability to intentionally moderate content can also be used for the protection of individual rights and copyrighted material.</p>
+    <p>As opposed to an absolute statement like Arweave is "censorship free", we prefer to use the term <strong>censor-resistant</strong> as Arweave adopts a self-censorship or voluntary censorship model. This means that whatever you <em>upload</em> to the permaweb cannot be removed entirely from the network by a single person, central entity, nation, or organization. But it's a different story when <em>retrieving</em> content from the permaweb. As an individual, you can choose to use applications that limit the kind of information you can see on the permaweb. At the same time, an entity operating network infrastructure or building applications may have self-imposed content policies or be subject to moderate content to comply with local regulations. The core principle of the network is that every participant has the <a href="https://arwiki.wiki/#/en/content-policies">autonomy to decide</a> which content they want to store, serve, and see.</p>
+    <h3><strong>Network Configuration</strong></h3>
+    <p>There are three main entities that can effect censorship and moderation on network data:</p>
+    <ol>
+    <li>Mining nodes which are responsible for network security, storing data, and sharing it to other miners</li>
+    <li>Gateway nodes which are responsible for reading and writing data to / from the network, caching files, as well as querying and indexing that data</li>
+    <li>Applications which end users utilize to interact with data on the network</li>
+    </ol>
+    <p><img src="./censorship-and-content-moderation/web-of-nodes.png" alt=""></p>
+    <p>Each individual mining node operator can choose to not store (aka blacklist or ban) certain files based on regional regulations (i.e., if something is copyrighted or illegal) or for whatever other reason they choose. They can even blocklist transactions from specific addresses entirely. However, by not storing these files they are less likely to receive rewards through the mining protocol. Arweave's incentivize mechanism ensures that many replications of file are stored across the network — a <a href="https://2-6-spec.arweave.dev/">near-future network upgrade</a> will boost the minimum replication rate to many thousands. The incentive model also encourages regionally dispersed mining nodes to join the network — the more miners, the more replicas of your data persist across the network.</p>
+    <p>Likewise, individual gateway operators and application developers can choose to not serve certain files based on regional regulations or for reasons of their choosing. By design, there are no built-in disincentives in the network's protocol to discourage censorship as there may be valid reasons such as blocking of copyrighted material or malicious programs. Even so, gateways and applications may face decreased usage and negative reputation as a result of abusive censorship.</p>
+    <p><img src="./censorship-and-content-moderation/spidey.png" alt=""></p>
+    <p>Complete censorship requires the coordination and compliance of every entity at each level of The Permanence Pie (a concept that we'll introduce in a future article) which would be quite the undertaking for a decentralized and permissionless network such as Arweave.</p>
+    <h3><strong>Encrypted Files</strong></h3>
+    <p>Files are not natively encrypted by Arweave while uploading to the network. However, prior to uploading, users can choose to encrypt the files themselves or through a third party application such as <a href="https://ardrive.io/can-you-store-private-data-on-a-blockchain/">ArDrive</a> which performs the encryption on their behalf. Raw encrypted files are publicly viewable by any user of the network but they will just appear as random ciphertext — unless you have the keys or another method to decrypt those files.</p>
+    <p><img src="./censorship-and-content-moderation/locked-board.png" alt=""></p>
+    <p>Regarding moderation of encrypted files: if a user uploads an encrypted file containing regionally illegal or illicit files, it is possible that a network service provider (miner, gateway, or app) in that region could become aware of its contents and flag it for content moderation. Again, this capability is intentional and necessary for individual autonomy and compliance with local regulations.</p>
+    <h3><strong>Censorship by "51% Attack"</strong></h3>
+    <p>Some users may be concerned that a well funded bad actor or nation state could assume majority control of the network and force removal of content. This is sometimes known as a 51% attack and while a valid concern, it is extremely unlikely for the following reasons:</p>
+    <ol>
+    <li>Arweave utilizes a modified proof of work consensus algorithm in which the work performed by miners results in data persistence and replications. Miner nodes are physical hardware devices which have associated equipment, internet, electric, and maintenance / overhead costs. To gain control of the network, a malicious attacker would have to procure hardware and expend energy greater than the sum of all other miners on the network.</li>
+    <li>Even if the malicious actor's brute force attack was successful, they would only have domination of the network's hashrate. The result would be a network fork: Fork A, the now compromised chain, would exist alongside Fork B, the original, untampered chain. Ultimately the users of the network get to choose which fork to follow. So if Fork A is undesirable, they can continue to use Fork B. The attacker would then have to continuously spend resources on creating a successful fork.</li>
+    <li>Finally, as long as any single miner node stores or a gateway caches the "censored" file*, the data will continue to persist and be available on the network. So to totally purge a file, the attacker would either have to control all nodes or block them from accessing the network.</li>
+    </ol>
+    <p><img src="./censorship-and-content-moderation/choose-a-fork.png" alt=""></p>
+    <p>*technically, miner nodes store smaller broken up parts of individual files known as chunks which are then reassembled by a client or gateway to recreate the full file but this is a topic for another time.</p>
+    <h3><strong>Conclusion</strong></h3>
+    <p>Arweave is a global decentralized network. It distributes data to thousands of nodes which makes it extremely impractical, if not impossible, for any centralized actor to remove all instances of specific data from the entire network. As projects such as <a href="http://ar.io/">ar.io</a> come online, the trend towards decentralization will continue to grow and become more robust. A node or application may go offline or choose to self-censor data, but the redundancy of the network keeps the entire repository of uploaded information available.</p>
+    </div></div>
+          </div>
+        </div>
+      
+      </main>
+    </div>
+  </body>
+</html>

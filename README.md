@@ -21,7 +21,7 @@ Simply deploy to any Arweave gateway. The page will automatically:
 
 - Pure HTML/CSS/JavaScript implementation
 - No external dependencies
-- Gateway-aware content loading
+- Gateway-aware content loading, including article previews
 - Built for the permaweb
 
 ## Credits

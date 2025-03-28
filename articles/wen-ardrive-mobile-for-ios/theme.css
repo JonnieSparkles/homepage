@@ -1,0 +1,150 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Simple Document Theme - Dark Mode */
+:root {
+  --text-color: #e0e0e0;
+  --bg-color: #1a1a1a;
+  --link-color: #ff3333;
+  --quote-color: #b0b0b0;
+  --heading-color: #ffffff;
+  --quote-bg: rgba(216, 210, 195, 0.1);
+  --quote-marks: #404040;
+  --heading-font: 'Space Grotesk', sans-serif;
+  --body-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.markdown-preview {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Basic image handling */
+.markdown-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 { 
+  font-size: 3em;
+  margin-bottom: 1.5rem;
+}
+
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.5em; }
+h5, h6 { font-size: 1.2em; }
+
+p {
+  margin: 1rem 0;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #ff6666;
+  text-decoration: none;
+}
+
+/* Simple responsive adjustments */
+@media (max-width: 840px) {
+  .markdown-preview {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .markdown-preview {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.4em;
+  }
+}
+
+blockquote {
+  border-left: none;
+  padding: 1.5rem 2rem;
+  color: var(--quote-color);
+  margin: 2rem 1rem;
+  font-style: italic;
+  background-color: var(--quote-bg);
+  position: relative;
+  font-family: var(--body-font);
+}
+
+blockquote:before, blockquote:after {
+  content: '"';
+  font-size: 3em;
+  position: absolute;
+  color: var(--quote-marks);
+}
+
+blockquote:before {
+  top: -10px;
+  left: 5px;
+}
+
+blockquote:after {
+  bottom: -30px;
+  right: 5px;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--link-color);
+  color: var(--bg-color);
+}
+
+/* Small text adjustments for dark mode */
+small {
+  color: #888;
+}
+
+/* List styling */
+ul, ol {
+  color: var(--text-color);
+}
+
+/* Code block styling if needed */
+code {
+  background: #2a2a2a;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+} 
